@@ -3,6 +3,7 @@ This project demonstrates a robust esp32-s3 communication system using ESP-NOW p
 The implementation TX a simple alarm broadcast system that works over 4km distances.
 
 4km line-of-sight with 2db antennas. Can go to 1.5km with paper antennas line-of-sight.
+Distance reached depends also largely on interference and good earthing on the systems.
 
 How It Works
 Core Features
