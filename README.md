@@ -4,6 +4,7 @@ The implementation TX a simple alarm broadcast system that works over 4km distan
 
 4km line-of-sight with 2db antennas. Can go to 1.5km with paper antennas line-of-sight.
 Distance reached depends also largely on interference and good earthing on the systems.
+Enable espnow Long Distance in menuconfig.
 
 How It Works
 Core Features
