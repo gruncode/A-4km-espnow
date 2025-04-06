@@ -1,5 +1,6 @@
 
 This project demonstrates a robust esp32-s3 communication system using ESP-NOW protocol combined with principle of spread spectrum i.e frequency hopping over 3 channels. 
+Suitable for sending simple commands on off, some data etc.
 The implementation TX a simple alarm broadcast system that works over 4km distances.
 
 4km line-of-sight with 2db antennas. Can go to 1.5km with paper antennas line-of-sight.
