@@ -14,14 +14,14 @@ Long Range: Optimized for long-distance communication (4km+ tested)
 Communication Flow
 
 Transmitter (TX) Operation:
-Cycles through WiFi channels (1→6→13) spending 1000ms on each
-Broadcasts "ALARM!" messages every 5ms while on each channel
-Logs transmission statistics for each channel
+Cycles through WiFi channels (1→6→13) spending 1000ms on each.
+Broadcasts "ALARM!" messages every 5ms while on each channel.
+Logs transmission statistics for each channel.
 
 Receiver (RX) Operation:
-Rapidly hops between channels (every 20ms) to catch transmissions
-Counts received messages across all channels
-Reports reception statistics every 3 seconds
+Rapidly hops between channels (every 20ms) to catch transmissions.
+Counts received messages across all channels.
+Reports reception statistics every 3 seconds.
 
 How to Use This Code
 
