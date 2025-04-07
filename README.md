@@ -25,3 +25,5 @@ You can play with timing parameters (TX_CHANNEL_DURATION, RX_CHANNEL_DURATION, e
 Can also enable espnow power save (periodic sleep wakeup) but performance is degraded.
 
 compiled with espidf v5.3.2 and python3.9
+
+A workflow main.yml is available for online compiling.
