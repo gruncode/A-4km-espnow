@@ -1,6 +1,6 @@
 This project demonstrates an esp32-s3 communication system using the ESP-NOW protocol combined with the principle of spread spectrum by doing frequency hopping over 3 wifi channels. 
 Suitable for sending simple commands e.g on/off, or some basic data, and generaly where a latency of eg a sec is not a problem.
-In te code example a simple alarm is broadcast.
+In the code example a simple alarm is broadcast.
 
 Can reach 4km line-of-sight with 2db antennas. Can go to 1.5km with paper antennas line-of-sight.
 Distance reached depends also largely on interference and good earthing on the systems.
