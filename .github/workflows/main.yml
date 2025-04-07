@@ -14,11 +14,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up ESP-IDF
+    - name: Set up ESP-IDF and build
       uses: espressif/esp-idf-ci-action@v1
       with:
+        path: .
         esp_idf_version: v5.3.2
         target: esp32s3
+        command: idf.py build
 
-    - name: Build firmware
-      run: idf.py build
+    - name: Debug
+      run: |
+        echo "PATH=$PATH"
+        which idf.py
+        
+    - name: Upload firmware
+      uses: actions/upload-artifact@v3
+      with:
+        name: firmware
+        path: build/*.bin
