@@ -11,6 +11,7 @@
 
 //Use tha same file to flash RX and TX esps.
 // find the mac addr (using esptool.py --port PORT flash_id) for the pair of esps to be used and add one to RX_MAC and TX_MAC.
+// here i used 24:58:7c:e3:71:44 for RX MAC and d8:3b:da:89:4e:f0 fro TX MAC
 static const uint8_t RX_MAC[ESP_NOW_ETH_ALEN] = {0x24, 0x58, 0x7C, 0xE3, 0x71, 0x44};
 static const uint8_t TX_MAC[ESP_NOW_ETH_ALEN] = {0xD8, 0x3B, 0xDA, 0x89, 0x4E, 0xF0};
 static const uint8_t BROADCAST_MAC[ESP_NOW_ETH_ALEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
