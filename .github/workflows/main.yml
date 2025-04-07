@@ -58,7 +58,4 @@ jobs:
           . $HOME/esp/esp-idf/export.sh
           idf.py build
 
-      - name: Debug
-        run: |
-          echo "PATH=$PATH"
-          which idf.py
+
