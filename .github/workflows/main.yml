@@ -1,0 +1,4 @@
+- uses: espressif/setup-idf@v1
+  with:
+    version: v5.1
+    target: esp32s3
