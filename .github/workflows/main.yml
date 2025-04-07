@@ -27,8 +27,3 @@ jobs:
         echo "PATH=$PATH"
         which idf.py
         
-    - name: Upload firmware
-      uses: actions/upload-artifact@v3
-      with:
-        name: firmware
-        path: build/*.bin
