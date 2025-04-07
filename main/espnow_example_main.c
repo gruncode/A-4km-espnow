@@ -30,7 +30,7 @@ static volatile int s_rx_alarm_count = 0;
 
 #define TX_CHANNEL_DURATION     1000    // Each channel in channel_list (1, 6, 13) is active for TX_CHANNEL_DURATION then hops to the next channel.
 #define TX_INTER_MSG_GAP        5       // Messages are sent every TX_INTER_MSG_GAP while on the channel .
-#define RX_CHANNEL_DURATION     20      // Duration for each channel scan period in RX hopping 
+#define RX_CHANNEL_DURATION     20      // Duration staying on each channel during RX hopping 
 #define RX_MONITOR_WINDOW       3000    // Cumlative results from the 3 hops are reported every RX_MONITOR_WINDOW 
 
 // Common Wi-Fi Init
