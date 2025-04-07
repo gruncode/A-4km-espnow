@@ -57,15 +57,16 @@ jobs:
         run: |
           . $HOME/esp/esp-idf/export.sh
           idf.py build
-
+      
       - name: Upload firmware binaries
-        uses: actions/upload-artifact@v3.1.3
+        uses: ./.github/actions/upload-artifact
         with:
           name: esp32-firmware
           path: |
             build/*.bin
             build/*.elf
             build/*.map
+
           
 
 
