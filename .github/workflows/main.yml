@@ -14,16 +14,42 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up ESP-IDF and build
-      uses: espressif/esp-idf-ci-action@v1
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        path: .
-        esp_idf_version: v5.3.2
-        target: esp32s3
-        command: idf.py build
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget make libncurses-dev flex bison gperf python3 python3-pip python3-setuptools python3-serial python3-click python3-cryptography python3-future python3-pyparsing python3-pyelftools git
+        pip3 install --upgrade pip
+        pip3 install espressif-python-tools
+
+    - name: Set up ESP-IDF
+      run: |
+        mkdir -p $HOME/esp
+        cd $HOME/esp
+        git clone --recursive https://github.com/espressif/esp-idf.git
+        cd esp-idf
+        git checkout v5.3.2
+        ./install.sh
+        . ./export.sh
+        echo "ESP-IDF set up completed"
+
+    - name: Verify ESP-IDF setup
+      run: |
+        . $HOME/esp/esp-idf/export.sh
+        idf.py --version
+
+    - name: Build firmware
+      run: |
+        . $HOME/esp/esp-idf/export.sh
+        idf.py build
+      env:
+        IDF_PATH: ${{ github.workspace }}/esp-idf
 
     - name: Debug
       run: |
         echo "PATH=$PATH"
         which idf.py
-        
