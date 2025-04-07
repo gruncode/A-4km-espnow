@@ -24,3 +24,5 @@ Reports reception statistics every 3 seconds.
 You can play with timing parameters (TX_CHANNEL_DURATION, RX_CHANNEL_DURATION, etc.)
 
 Can also enable espnow power save (periodic sleep wakeup) but performance is degraded.
+
+compiled with espidf v5.3.2 and python3.9
