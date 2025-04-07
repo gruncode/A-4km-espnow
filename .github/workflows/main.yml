@@ -11,45 +11,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          # Pin Python to 3.10 (or another version that Espressif supports)
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y wget make libncurses-dev flex bison gperf python3 python3-pip python3-setuptools python3-serial python3-click python3-cryptography python3-future python3-pyparsing
-        pip3 install --upgrade pip
-        pip3 install espressif-python-tools --extra-index-url https://dl.espressif.com/pypi
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget make libncurses-dev flex bison gperf python3 python3-pip python3-setuptools python3-serial python3-click python3-cryptography python3-future python3-pyparsing
+          pip3 install --upgrade pip
+          # Now this works because 3.10 wheels exist in Espressif’s index
+          pip3 install espressif-python-tools --extra-index-url https://dl.espressif.com/pypi
 
-    - name: Set up ESP-IDF
-      run: |
-        mkdir -p $HOME/esp
-        cd $HOME/esp
-        git clone --recursive https://github.com/espressif/esp-idf.git
-        cd esp-idf
-        git checkout v5.3.2
-        ./install.sh
-        . ./export.sh
-        echo "ESP-IDF set up completed"
+      - name: Set up ESP-IDF
+        run: |
+          mkdir -p $HOME/esp
+          cd $HOME/esp
+          git clone --recursive https://github.com/espressif/esp-idf.git
+          cd esp-idf
+          git checkout v5.3.2
+          ./install.sh
+          . ./export.sh
+          echo "ESP-IDF set up completed"
 
-    - name: Verify ESP-IDF setup
-      run: |
-        . $HOME/esp/esp-idf/export.sh
-        idf.py --version
+      - name: Verify ESP-IDF setup
+        run: |
+          . $HOME/esp/esp-idf/export.sh
+          idf.py --version
 
-    - name: Build firmware
-      run: |
-        . $HOME/esp/esp-idf/export.sh
-        idf.py build
-      env:
-        IDF_PATH: ${{ github.workspace }}/esp-idf
+      - name: Build firmware
+        run: |
+          . $HOME/esp/esp-idf/export.sh
+          idf.py build
+        env:
+          IDF_PATH: ${{ github.workspace }}/esp-idf
 
-    - name: Debug
-      run: |
-        echo "PATH=$PATH"
-        which idf.py
+      - name: Debug
+        run: |
+          echo "PATH=$PATH"
+          which idf.py
