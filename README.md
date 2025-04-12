@@ -1,4 +1,4 @@
-This project demonstrates an esp32-s3 communication system using the ESP-NOW protocol combined with the principle of spread spectrum by doing frequency hopping over 3 wifi channels. 
+This project demonstrates an esp32-s3 communication system using the ESP-NOW protocol combined with the principle of spread spectrum by doing frequency hopping over 3  channels. 
 Suitable for sending simple commands e.g on/off, or some basic data, and generaly where a latency of eg a sec is not a problem.
 In the code example a simple alarm is broadcast.
 
@@ -12,7 +12,7 @@ Devices determine their role based on their MAC address, which has to be entered
 Communication Flow:
 
 Transmitter (TX) Operation:
-Cycles through WiFi channels (1→6→13) spending 1000ms on each.
+Cycles through  channels (1→6→13) spending 1000ms on each.
 Broadcasts "ALARM!" messages every 5ms while on each channel.
 Counts and prints the send messages cumulatively across all channels.
 
